@@ -1,0 +1,64 @@
+[project]
+name = "tglinks"
+version = "3.0.0"
+description = "Parse and build Telegram deep links (tg:// and https://t.me/…)."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "m-xim", email = "i@m-xim.ru" }]
+requires-python = ">=3.12"
+dependencies = [
+    "yarl>=1.9",
+    "parse>=1.20",
+]
+
+keywords = [
+    "telegram",
+    "deep-links",
+    "tg-links",
+    "t.me",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/m-xim/tglinks"
+Repository = "https://github.com/m-xim/tglinks"
+Issues = "https://github.com/m-xim/tglinks/issues"
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "ty",
+    "pytest",
+    "pytest-cov",
+    "hypothesis",
+]
+
+[build-system]
+requires = ["uv_build<0.12"]
+build-backend = "uv_build"
+
+
+[tool.uv]
+package = true
+
+[tool.semantic_release]
+version_source = "pyproject"
+commit_message = "chore(release): {version}"
+version_toml = [
+    "pyproject.toml:project.version",
+]
+
+[tool.semantic_release.branches.main]
+match = "main"
+
+[tool.semantic_release.branches.develop]
+match = "develop"
+prerelease = true
